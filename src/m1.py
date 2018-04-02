@@ -4,8 +4,8 @@ A problem in which to practice:
   -- using SEQUENCES
 
 Authors: Valerie Galluzzi, David Mutchler, Dave Fisher, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ashley Fowler.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import random
@@ -92,7 +92,7 @@ class CircleChanger(object):
         # --------------------------------------------------------------
 
         ################################################################
-        # TODO: 2.
+        # Done: 2.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_init   function (below).
         #   Third, implement and test this method.
@@ -101,6 +101,12 @@ class CircleChanger(object):
         # the SPECIFICATION of the method.  That is why you read the
         # TEST function before implementing the method that it tests.
         ################################################################
+
+
+        self.colors = colors
+        self.circle = rg.Circle(rg.Point(x,y),radius)
+        self.circle.fill_color = fill_color
+
 
     def __repr__(self):
         """
@@ -192,7 +198,7 @@ class CircleChanger(object):
             :type point: rg.Point
         """
         ################################################################
-        # TODO: 3.
+        # Done: 3.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_get_distance_from   function
         #   (below).  Third, implement and test this method.
@@ -201,6 +207,9 @@ class CircleChanger(object):
         #   of the    rg.Point     class to compute this distance.
         #   NO CREDIT if you use the distance formula here.
         ################################################################
+
+        distance = point.get_distance_from(self.circle.center)
+        return distance
 
     def swell_or_shrink_once(self, amount_to_swell_or_shrink):
         """
