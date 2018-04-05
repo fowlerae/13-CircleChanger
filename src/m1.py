@@ -26,20 +26,20 @@ def main():
     That is, a  TEST   function will not be called
     until you begin work on the code that it is testing.
     """
-    #if m1_tests.is_implemented('__init__', 20):
-        #run_test_init()
-    #if m1_tests.is_implemented('get_distance_from'):
-        #run_test_get_distance_from()
-    #if m1_tests.is_implemented('swell_or_shrink_once'):
-        #run_test_swell_or_shrink_once()
-    #if m1_tests.is_implemented('swell_or_shrink_repeatedly', 4):
-        #run_test_swell_or_shrink_repeatedly()
-    #if m1_tests.is_implemented('swallow'):
-        #run_test_swallow()
-    #if m1_tests.is_implemented('change_color'):
-        #run_test_change_color()
-    #if m1_tests.is_implemented('change_to_original_color'):
-        #run_test_change_to_original_color()
+    if m1_tests.is_implemented('__init__', 20):
+        run_test_init()
+    if m1_tests.is_implemented('get_distance_from'):
+        run_test_get_distance_from()
+    if m1_tests.is_implemented('swell_or_shrink_once'):
+        run_test_swell_or_shrink_once()
+    if m1_tests.is_implemented('swell_or_shrink_repeatedly', 4):
+        run_test_swell_or_shrink_repeatedly()
+    if m1_tests.is_implemented('swallow'):
+        run_test_swallow()
+    if m1_tests.is_implemented('change_color'):
+        run_test_change_color()
+    if m1_tests.is_implemented('change_to_original_color'):
+        run_test_change_to_original_color()
     if m1_tests.is_implemented('change_to_next_color_in_tuple'):
         run_test_change_to_next_color_in_tuple()
 
@@ -350,7 +350,7 @@ class CircleChanger(object):
             self.draw()
 
 
-    #def swallow(self, other_circle_changer):
+    def swallow(self, other_circle_changer):
         """
         What comes in:
           -- self
@@ -376,7 +376,7 @@ class CircleChanger(object):
             :rtype CircleChanger
         """
         ################################################################
-        # TODO: 6.
+        # Done: 6.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_swallow   function (below).
         #   Third, implement and test this method.
@@ -387,15 +387,16 @@ class CircleChanger(object):
         #   NO CREDIT if you use the distance formula here.
         ################################################################
 
-        #new_radius = (self.get_distance_from(other_circle_changer.circle.center)) / 2
-        #new_x = self.circle.center.x + new_radius
-        #new_y = self.circle.center.y + new_radius
-        #self.circle.move_center_to(new_x, new_y)
 
-        #new_radius = (self.get_distance_from(other_circle_changer.circle.center))/2
-        #self.swell_or_shrink_once(new_radius)
-        #self.circle.fill_color = "red"
-        #self.colors = self.colors + other_circle_changer
+        new_x = (self.circle.center.x + other_circle_changer.circle.center.x)/2
+        new_y = (self.circle.center.y + other_circle_changer.circle.center.y)/2
+
+        new_radius = (self.get_distance_from(other_circle_changer.circle.center))/2
+        new = CircleChanger(new_x,new_y,new_radius,"red", self.colors + other_circle_changer.colors)
+
+
+        return new
+
 
 
     def change_color(self, index_of_color):
